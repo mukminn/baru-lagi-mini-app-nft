@@ -26,7 +26,9 @@ export default function MyNFTs() {
     abi: contractAbi,
     functionName: 'balanceOf',
     args: address ? [address] : undefined,
-    enabled: !!address,
+    query: {
+      enabled: !!address,
+    },
   });
 
   // Fetch NFTs
