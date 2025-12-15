@@ -72,7 +72,9 @@ export default function Dashboard() {
     abi: contractAbi,
     functionName: 'userEthFees',
     args: address ? [address] : undefined,
-    enabled: !!address,
+    query: {
+      enabled: !!address,
+    },
   });
 
   const { data: userUsdcFees } = useReadContract({
@@ -80,7 +82,9 @@ export default function Dashboard() {
     abi: contractAbi,
     functionName: 'userUsdcFees',
     args: address ? [address] : undefined,
-    enabled: !!address,
+    query: {
+      enabled: !!address,
+    },
   });
 
   const { data: mintingEnabled } = useReadContract({
