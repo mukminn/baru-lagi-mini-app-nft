@@ -1,107 +1,122 @@
-# NFT Minting Platform - Mini App
+# Unified Fee NFT Mini App
 
-Frontend aplikasi untuk NFT Minting dengan tema biru langit.
+Mini aplikasi web lengkap untuk NFT minting dengan sistem fees terpadu menggunakan UnifiedFeeContract.
 
-## Fitur
+## 🚀 Fitur
 
-✅ **Mint NFT**
-- Mint dengan ETH
-- Mint dengan USDC
-- Batch mint (multiple NFT sekaligus)
+### ✨ Mint NFT
+- **Mint Single NFT** dengan ETH atau USDC
+- **Batch Mint NFT** dengan ETH atau USDC
+- Auto-approve USDC sebelum minting
+- Validasi input dan error handling
 
-✅ **Dashboard**
-- Total supply & max supply
-- Total fees terkumpul
-- Contract balance
-- User statistics
-- Minting status
+### 📊 Dashboard
+- Statistik lengkap (Total Supply, Max Supply, Progress Bar)
+- Total Fees terkumpul (ETH & USDC)
+- Contract Balance
+- Harga mint saat ini
+- Status minting (Aktif/Nonaktif)
+- Statistik user (fees yang sudah dibayar)
 
-✅ **Owner Panel**
-- Withdraw ETH fees
-- Withdraw USDC fees
-- Update mint price
-- Toggle minting on/off
-- Owner mint (airdrop)
+### 🖼️ NFT Saya
+- Lihat semua NFT yang dimiliki
+- Load metadata otomatis dari IPFS
+- Tampilkan gambar, nama, deskripsi, dan atribut
+- Link ke token URI
 
-## Setup
+### 👑 Owner Panel
+- **Withdraw Fees**: ETH, USDC, atau semua sekaligus
+- **Toggle Minting**: Aktifkan/nonaktifkan minting
+- **Update Harga**: Set harga mint untuk ETH dan USDC
+- **Owner Mint**: Mint NFT gratis untuk airdrop
+- **Kelola Token URI**: 
+  - Set Token URI (single)
+  - Batch Set Token URI
+  - Set Base URI
 
-1. **Install dependencies:**
-   ```bash
-   cd frontend
-   npm install
-   ```
+## 🎨 Design
 
-2. **Setup environment variables:**
-   ```bash
-   cp .env.local.example .env.local
-   ```
-   
-   Edit `.env.local` dan isi:
-   ```
-   NEXT_PUBLIC_CONTRACT_ADDRESS=0x7b72B887732184F23B58F6Ed14BCb92625D6c031
-   NEXT_PUBLIC_USDC_ADDRESS=0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
-   NEXT_PUBLIC_CHAIN_ID=8453
-   NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=your-project-id
-   ```
+- **Tema**: Biru langit (Sky Blue)
+- **Framework**: Next.js 14 dengan App Router
+- **Styling**: Tailwind CSS dengan custom theme
+- **Responsif**: Mobile & Desktop friendly
+- **UI/UX**: Modern dengan animasi dan transisi
 
-3. **Run development server:**
-   ```bash
-   npm run dev
-   ```
+## 🛠️ Tech Stack
 
-4. **Open browser:**
-   ```
-   http://localhost:3000
-   ```
+- **Frontend**: Next.js 14, React 18, TypeScript
+- **Web3**: Wagmi v2, Viem
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
 
-## Tech Stack
-
-- **Next.js 14** - React framework
-- **TypeScript** - Type safety
-- **Tailwind CSS** - Styling dengan tema biru langit
-- **Wagmi** - Ethereum React hooks
-- **RainbowKit** - Wallet connection UI
-- **Viem** - Ethereum library
-
-## Warna Tema
-
-- Primary: Sky Blue (#0ea5e9)
-- Background: Gradient biru langit
-- Cards: White dengan backdrop blur
-- Accent: Sky Blue shades
-
-## Contract Functions
-
-Semua fungsi public dari contract sudah diimplementasikan:
-- `mintNFT()` - Mint dengan ETH
-- `mintNFTWithUsdc()` - Mint dengan USDC
-- `batchMintNFT()` - Batch mint dengan ETH
-- `batchMintNFTWithUsdc()` - Batch mint dengan USDC
-- `tokenURI()` - Get NFT metadata
-- `nftTotalSupply()` - Total NFT yang sudah di-mint
-- `nftMaxSupply()` - Maximum supply
-- `nftMintPriceEth()` - Harga mint dengan ETH
-- `nftMintPriceUsdc()` - Harga mint dengan USDC
-- `totalEthFees()` - Total fees ETH
-- `totalUsdcFees()` - Total fees USDC
-- `getEthBalance()` - Contract ETH balance
-- `getUsdcBalance()` - Contract USDC balance
-- `userEthFees()` - User ETH fees
-- `userUsdcFees()` - User USDC fees
-- `nftMintingEnabled()` - Status minting
-- Owner functions: `withdrawEth()`, `withdrawUsdc()`, `withdrawAll()`, `setNFTMintPrice()`, `toggleNFTMinting()`, `ownerMintNFT()`
-
-## Build untuk Production
+## 📦 Instalasi
 
 ```bash
-npm run build
-npm start
+npm install
 ```
 
-## Deploy
+## ⚙️ Konfigurasi
 
-Bisa di-deploy ke:
-- Vercel (recommended)
-- Netlify
-- Cloudflare Pages
-- Self-hosted
+Buat file `.env.local` di root:
+
+```env
+NEXT_PUBLIC_CONTRACT_ADDRESS=0x...
+NEXT_PUBLIC_USDC_ADDRESS=0x...
+NEXT_PUBLIC_CHAIN_ID=8453
+```
+
+## 🚀 Menjalankan
+
+```bash
+npm run dev
+```
+
+Aplikasi akan berjalan di http://localhost:3000
+
+## 📁 Struktur Project
+
+```
+.
+├── app/              # Next.js App Router
+│   ├── globals.css   # Global styles dengan tema biru langit
+│   ├── layout.tsx    # Root layout
+│   ├── page.tsx      # Halaman utama
+│   └── providers.tsx # Web3 providers (Wagmi)
+├── components/       # React components
+│   ├── Dashboard.tsx      # Dashboard dengan statistik
+│   ├── Header.tsx         # Header dengan wallet connection
+│   ├── MintForms.tsx      # Form untuk mint NFT
+│   ├── MintSection.tsx    # Section mint dengan toggle
+│   ├── MyNFTs.tsx         # Komponen untuk melihat NFT
+│   └── OwnerPanel.tsx     # Panel admin untuk owner
+└── lib/              # Utilities
+    ├── config.ts     # Konfigurasi contract
+    └── contract.ts   # Contract ABI
+```
+
+## 🚀 Deploy ke Vercel
+
+1. **Import project dari GitHub:**
+   - Buka https://vercel.com
+   - Klik "New Project"
+   - Import repository: `mukminn/baru-lagi-mini-app-nft`
+
+2. **Environment Variables:**
+   - Tambahkan di Vercel dashboard:
+     - `NEXT_PUBLIC_CONTRACT_ADDRESS`
+     - `NEXT_PUBLIC_USDC_ADDRESS`
+     - `NEXT_PUBLIC_CHAIN_ID`
+
+3. **Deploy:**
+   - Vercel akan otomatis detect Next.js
+   - Build command: `npm run build`
+   - Deploy otomatis setiap push ke main branch
+
+## 🔗 Links
+
+- **Repository**: https://github.com/mukminn/baru-lagi-mini-app-nft
+- **Contract**: UnifiedFeeContract.sol
+
+## 📝 License
+
+MIT
