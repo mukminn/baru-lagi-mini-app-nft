@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 import { useAccount, useReadContract, usePublicClient } from 'wagmi';
 import { contractAbi } from '@/lib/contract';
 import { CONTRACT_ADDRESS } from '@/lib/config';
-import { Image, Package, ExternalLink, Loader2 } from 'lucide-react';
+import Image from 'next/image';
+import { Image as ImageIcon, Package, ExternalLink, Loader2 } from 'lucide-react';
 
 interface NFTData {
   tokenId: bigint;
@@ -157,19 +158,21 @@ export default function MyNFTs() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {nfts.map((nft, index) => (
           <div key={index} className="card hover:shadow-xl transition-shadow">
-            <div className="aspect-square bg-gradient-to-br from-sky-blue-100 to-sky-blue-200 rounded-xl mb-4 flex items-center justify-center overflow-hidden">
+            <div className="aspect-square bg-gradient-to-br from-sky-blue-100 to-sky-blue-200 rounded-xl mb-4 flex items-center justify-center overflow-hidden relative">
               {nft.metadata?.image ? (
-                <img
+                <Image
                   src={nft.metadata.image}
                   alt={nft.metadata.name || `NFT #${nft.tokenId.toString()}`}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                   onError={(e) => {
                     (e.target as HTMLImageElement).style.display = 'none';
                   }}
+                  unoptimized
                 />
               ) : (
                 <div className="text-center p-8">
-                  <Image className="w-16 h-16 text-sky-blue-400 mx-auto mb-2" />
+                  <ImageIcon className="w-16 h-16 text-sky-blue-400 mx-auto mb-2" />
                   <p className="text-sm text-sky-blue-600">No Image</p>
                   {nft.uri && (
                     <button

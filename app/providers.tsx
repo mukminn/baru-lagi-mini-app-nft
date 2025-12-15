@@ -3,13 +3,13 @@
 import { WagmiProvider, createConfig, http } from 'wagmi';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { base } from 'wagmi/chains';
-import { injected } from '@wagmi/connectors';
+import { metaMask } from '@wagmi/connectors';
 
 // Create wagmi config - hanya injected connector (MetaMask, dll)
 const config = createConfig({
   chains: [base],
   connectors: [
-    injected(),
+    metaMask(),
   ],
   transports: {
     [base.id]: http(),
