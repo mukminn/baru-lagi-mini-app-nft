@@ -33,4 +33,15 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+
+# Ignore files yang tidak perlu untuk deployment
+contracts/
+scripts/
+hardhat.config.js
+NFT-METADATA-GUIDE.md
+RANDOM-IMAGE-GUIDE.md
+SOLUSI-CONTRACT-LAMA.md
+UPDATE-NFT-GUIDE.md
+metadata-example.json
+test/
+app/api/
