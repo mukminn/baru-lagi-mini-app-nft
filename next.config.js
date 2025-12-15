@@ -13,10 +13,6 @@ const nextConfig = {
         protocol: 'https',
         hostname: '**',
       },
-      {
-        protocol: 'ipfs',
-        hostname: '**',
-      },
     ],
     unoptimized: true,
   },

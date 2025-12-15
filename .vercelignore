@@ -1,0 +1,15 @@
+node_modules
+.next
+.vercel
+*.log
+.DS_Store
+contracts/
+scripts/
+test/
+hardhat.config.js
+NFT-METADATA-GUIDE.md
+RANDOM-IMAGE-GUIDE.md
+SOLUSI-CONTRACT-LAMA.md
+UPDATE-NFT-GUIDE.md
+metadata-example.json
+
